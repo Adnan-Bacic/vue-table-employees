@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!--Vue link-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"/>
+</head>
+<body>
+    <div id="main">
+        <h1 class="ui center aligned header">{{ heading }}</h1>
+
+        <div class="ui container">
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Avatar</th>
+                        <th v-on:click="sortBy = 'firstName'">First name</th>
+                        <th v-on:click="sortBy = 'lastName'">Last name</th>
+                        <th v-on:click="sortBy = 'email'">E-mail</th>
+                        <th v-on:click="sortBy = 'phone'">Phone</th>
+                        <th v-on:click="sortBy = 'department'">Department</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(employee, index) in sortedEmployees" :key="index">
+                        <td><img v-bind:src="employee.photoUrl" class="ui mini rounded image"></td>
+                        <td>{{ employee.firstName }}</td>
+                        <td>{{ employee.lastName }}</td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{ employee.phone }}</td>
+                        <td>{{ employee.department }}</td>
+                    </tr>
+                </tbody>
+                <tfoot class="ui center aligned">
+                    <tr>
+                        <td>{{ copyright }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
