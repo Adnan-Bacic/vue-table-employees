@@ -1,2 +1,2 @@
-# tableEmployees
+# vue-table-employees
 vue basics
